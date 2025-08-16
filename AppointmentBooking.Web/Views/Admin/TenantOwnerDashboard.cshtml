@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "TenantOwner Dashboard";
+}
+
+<h2 class="mb-4">TenantOwner Dashboard</h2>
+
+<div class="row">
+    <!-- Appointments Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Appointments</h5>
+                <p class="card-text">View and manage all appointments for your tenant.</p>
+                <a href="@Url.Action("Index", "Appointments")" class="btn btn-primary btn-block">Manage Appointments</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Services</h5>
+                <p class="card-text">Add or update services your tenant offers.</p>
+                <a href="@Url.Action("Index", "Service")" class="btn btn-primary btn-block">Manage Services</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customers Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <p class="card-text">View and manage your customers.</p>
+                <a href="@Url.Action("Index", "Customer")" class="btn btn-primary btn-block">Manage Customers</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Staff</h5>
+                <p class="card-text">Manage staff accounts within your tenant.</p>
+                <a href="@Url.Action("AssignRole", "Admin")" class="btn btn-primary btn-block">Manage Staff</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = ViewBag.BusinessName ?? "Tenant Home";
+    var primary = ViewBag.PrimaryColor ?? "#007bff"; // default bootstrap blue
+    var secondary = ViewBag.SecondaryColor ?? "#6c757d"; // default bootstrap gray
+    var logo = ViewBag.LogoUrl ?? "/images/default-logo.png";
+}
+
+<style>
+    .tenant-hero {
+        background-color: @primary;
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .tenant-card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    .tenant-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .btn-tenant-primary {
+        background-color: @primary;
+        color: white;
+        border: none;
+    }
+    .btn-tenant-primary:hover {
+        background-color: darken(@primary, 10%);
+        color: white;
+    }
+</style>
+
+<div class="container mt-4">
+    <!-- Hero Section -->
+    <div class="tenant-hero shadow-sm">
+        <img src="@logo" alt="@ViewBag.BusinessName Logo" style="max-height: 80px; margin-bottom: 20px;">
+        <h1>Welcome to @ViewBag.BusinessName</h1>
+        <p class="lead">Your trusted platform for appointments and services</p>
+        <a href="#" class="btn btn-light btn-lg mt-3">Book Now</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="tenant-card p-4 text-center">
+                <i class="bi bi-calendar-check display-4 text-primary"></i>
+                <h4 class="mt-3">Easy Booking</h4>
+                <p>Book your appointments with just a few clicks.</p>
+                <a href="#" class="btn btn-tenant-primary">Book</a>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="tenant-card p-4 text-center">
+                <i class="bi bi-person-check display-4 text-primary"></i>
+                <h4 class="mt-3">Verified Professionals</h4>
+                <p>Get service from experienced and verified experts.</p>
+                <a href="#" class="btn btn-tenant-primary">Meet Experts</a>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0">
+            <div class="tenant-card p-4 text-center">
+                <i class="bi bi-clock-history display-4 text-primary"></i>
+                <h4 class="mt-3">24/7 Availability</h4>
+                <p>We’re here for you at any time, any day.</p>
+                <a href="#" class="btn btn-tenant-primary">Check Schedule</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5">
+        <h2>Ready to get started?</h2>
+        <p>Book your appointment today and experience our service excellence.</p>
+        <a href="#" class="btn btn-tenant-primary btn-lg">Book an Appointment</a>
+    </div>
+</div>

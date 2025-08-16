@@ -1,0 +1,71 @@
+﻿@model AppointmentBooking.Web.ViewModel.CreateTenantViewModel
+@{
+    ViewData["Title"] = "Create Tenant";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white rounded-top-4">
+                    <h4 class="mb-0"><i class="bi bi-building me-2"></i>Create Tenant</h4>
+                </div>
+                <div class="card-body p-4">
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="CreateTenant" method="post" novalidate>
+                        <div class="mb-3">
+                            <label asp-for="BusinessName" class="form-label fw-semibold"></label>
+                            <input asp-for="BusinessName" class="form-control" placeholder="Enter business name" />
+                            <span asp-validation-for="BusinessName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Slug" class="form-label fw-semibold"></label>
+                            <input asp-for="Slug" class="form-control" placeholder="Enter tenant URL slug" />
+                            <div class="form-text">This will be used in the tenant's unique URL (e.g. https://yourapp.com/<strong>slug</strong>)</div>
+                            <span asp-validation-for="Slug" class="text-danger"></span>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="mb-3">
+                            <label asp-for="OwnerEmail" class="form-label fw-semibold"></label>
+                            <input asp-for="OwnerEmail" type="email" class="form-control" placeholder="Enter owner email" />
+                            <span asp-validation-for="OwnerEmail" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-semibold"></label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-plus-circle me-2"></i>Create Tenant
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Admin" asp-action="CreateRole" class="text-decoration-none">
+                    <i class="bi bi-shield-lock"></i> Manage Roles
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

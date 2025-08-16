@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "SuperAdmin Dashboard";
+}
+
+<h2 class="mb-4">SuperAdmin Dashboard</h2>
+
+<div class="row">
+    <!-- Create Tenant Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Create Tenant</h5>
+                <p class="card-text">Add a new tenant and assign a TenantOwner.</p>
+                <a href="@Url.Action("CreateTenant", "Admin")" class="btn btn-primary btn-block">Create Tenant</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Role Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Create Role</h5>
+                <p class="card-text">Define a new role for the system.</p>
+                <a href="@Url.Action("CreateRole", "Admin")" class="btn btn-primary btn-block">Create Role</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Role Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Assign Role</h5>
+                <p class="card-text">Assign roles to existing users.</p>
+                <a href="@Url.Action("AssignRole", "Admin")" class="btn btn-primary btn-block">Assign Role</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Tenants Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">View Tenants</h5>
+                <p class="card-text">See all tenants in the system.</p>
+                <a href="@Url.Action("Index", "Tenant")" class="btn btn-primary btn-block">View Tenants</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- View Users Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Manage Users</h5>
+                <p class="card-text">View and manage all users in the system.</p>
+                <a href="@Url.Action("Index", "User")" class="btn btn-primary btn-block">Manage Users</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Appointments Card -->
+    <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">View Appointments</h5>
+                <p class="card-text">See all appointments across tenants.</p>
+                <a href="@Url.Action("Index", "Appointments")" class="btn btn-primary btn-block">Appointments</a>
+            </div>
+        </div>
+    </div>
+</div>

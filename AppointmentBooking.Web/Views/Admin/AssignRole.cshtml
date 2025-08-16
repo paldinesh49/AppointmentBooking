@@ -1,0 +1,51 @@
+﻿@model AppointmentBooking.Web.ViewModel.AssignRoleViewModel
+
+@{
+    ViewData["Title"] = "Assign Role";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h4 class="mb-0">Assign Role to User</h4>
+        </div>
+        <div class="card-body p-4">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">@TempData["Success"]</div>
+            }
+
+            <form asp-action="AssignRole" method="post">
+                <div class="mb-3">
+                    <label asp-for="UserId" class="form-label"></label>
+                    <select asp-for="UserId" class="form-select">
+                        <option value="">-- Select User --</option>
+                        @foreach (var user in Model.Users)
+                        {
+                            <option value="@user.Id">@user.Email</option>
+                        }
+                    </select>
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="RoleName" class="form-label"></label>
+                    <select asp-for="RoleName" class="form-select">
+                        <option value="">-- Select Role --</option>
+                        @foreach (var role in Model.Roles)
+                        {
+                            <option value="@role">@role</option>
+                        }
+                    </select>
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success px-4">Assign Role</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

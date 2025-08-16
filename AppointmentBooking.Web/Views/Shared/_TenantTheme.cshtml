@@ -1,0 +1,46 @@
+﻿@{
+    var primary = ViewBag.PrimaryColor?.ToString() ?? "#007bff"; // Bootstrap blue
+    var secondary = ViewBag.SecondaryColor?.ToString() ?? "#6c757d"; // Bootstrap gray
+}
+
+<style>
+    :root {
+        --tenant-primary: @(primary);
+        --tenant-secondary: @(secondary);
+    }
+
+    /* Override Bootstrap primary & secondary */
+    .btn-primary, .bg-primary {
+        background-color: var(--tenant-primary) !important;
+        border-color: var(--tenant-primary) !important;
+    }
+
+        /* Fallback for color-mix: use filter for darken effect */
+        .btn-primary:hover {
+            background-color: var(--tenant-primary) !important;
+            filter: brightness(85%);
+        }
+
+    .text-primary {
+        color: var(--tenant-primary) !important;
+    }
+
+    .btn-secondary, .bg-secondary {
+        background-color: var(--tenant-secondary) !important;
+        border-color: var(--tenant-secondary) !important;
+    }
+
+    .text-secondary {
+        color: var(--tenant-secondary) !important;
+    }
+
+    /* Optional: links */
+    a {
+        color: var(--tenant-primary) !important;
+    }
+
+        a:hover {
+            color: var(--tenant-primary) !important;
+            filter: brightness(85%);
+        }
+</style>

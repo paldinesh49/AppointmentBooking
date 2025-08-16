@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AppointmentBooking.Application.DTOs.AppointmentDto>
+
+<h2>Appointments</h2>
+<p><a class="btn btn-primary" href="/Appointments/Create">New Appointment</a></p>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Customer</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.ServiceName</td>
+                <td>@a.CustomerName</td>
+                <td>@a.StartTime</td>
+                <td>@a.EndTime</td>
+                <td>@a.Status</td>
+                <td>
+                    <form method="post" asp-action="UpdateStatus">
+                        <input type="hidden" name="id" value="@a.Id" />
+                        <select name="status" class="form-select form-select-sm" style="width:140px; display:inline-block;">
+                            <option>Pending</option>
+                            <option>Confirmed</option>
+                            <option>Cancelled</option>
+                        </select>
+                        <button class="btn btn-sm btn-outline-secondary" type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

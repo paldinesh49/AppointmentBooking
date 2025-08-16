@@ -1,0 +1,37 @@
+﻿@model AppointmentBooking.Application.Requests.CreateAppointmentRequest
+@{
+    var services = (Microsoft.AspNetCore.Mvc.Rendering.SelectList)ViewBag.Services;
+    var customers = (Microsoft.AspNetCore.Mvc.Rendering.SelectList)ViewBag.Customers;
+}
+
+<h2>Book Appointment</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Service</label>
+        <select asp-for="ServiceId" asp-items="services" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Customer</label>
+        <select asp-for="CustomerId" asp-items="customers" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Start Time</label>
+        <input asp-for="StartTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Notes</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+    <a class="btn btn-secondary" href="/Appointments">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
